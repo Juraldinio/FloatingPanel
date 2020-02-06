@@ -694,6 +694,8 @@ class FloatingPanelCore: NSObject, UIGestureRecognizerDelegate {
                 }
             }
             log.debug("initial scroll offset --", initialScrollOffset)
+            /* A user can drag the panel outside the tracked scoll view while its content is decelerating */
+            stopScrollingWithDeceleration(at: initialScrollOffset)
         }
 
         initialTranslationY = translation.y
